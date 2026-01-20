@@ -16,10 +16,27 @@
     
 }
         .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             min-width: 90%;
             padding: 50px;
             background-color: rgb(174, 255, 201);
             border-radius: 20px;
+        }
+        .btn-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .btn-wrapper a {
+            background: blueviolet;
+            color: aliceblue;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -28,6 +45,9 @@
     <main>
         <div class="hero">
             <h2>Eduasas HOME</h2>
+            <div class="">
+                <a href="./Dashboard/index.html"> Do to Dashboard </a>
+            </div>
         </div>
     </main>
 
