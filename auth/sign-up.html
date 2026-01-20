@@ -126,6 +126,9 @@
                 })
             .then(response => response.json())
             .then(result => {
+                
+                console.log('result', result)
+                console.log('response', response)
                 location('../Dashboard/');
             })
             .catch(error => {
