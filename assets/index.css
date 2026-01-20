@@ -12,7 +12,7 @@ body {
 }
 
 main {
-    width: 100%;
+    min-width: 100%;
     padding: 10px;
     display: grid;
     place-items: center;
