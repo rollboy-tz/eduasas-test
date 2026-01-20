@@ -95,6 +95,7 @@
 
             fetch('https://edusaas-api.onrender.com/api/auth/login', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json'
                 },
