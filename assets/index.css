@@ -23,6 +23,6 @@ main {
 .hero {
     width: 90;
     border-radius: 20px;
-    background: #f49ef7;
+    background-color: #f49ef7;
     text-align: center;
 }
