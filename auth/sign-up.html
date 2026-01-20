@@ -17,9 +17,9 @@
         }
 
         .form-wrapper {
-            border: 1px solid rgba(137, 43, 226, 0.3);
+            border: 1px solid rgba(226, 43, 144, 0.3);
             border-radius: 10px;
-            background-color: rgba(137, 43, 226, 0.02);
+            background-color: rgba(226, 43, 144, 0.02);
             padding: 50px 30px;
         }
 
@@ -31,19 +31,19 @@
             margin-bottom: 15px;
         }
 
-        input {
+        input, select {
             padding: 8px 10px;
             border-radius: 3px;
             background: #f2fbfb;
-            border: 1px solid blueviolet;
+            border: 1px solid brown;
         }
 
         input:focus {
-            outline: 2px solid blueviolet;
+            outline: 2px solid brown;
         }
 
         button {
-            background-color: blueviolet;
+            background-color: brown;
             color: white;
             border-radius: 20px;
             padding: 10px 20px;
@@ -69,6 +69,26 @@
                 </div>
 
                 <div class="input-group">
+                    <label for="name"> Full Name </label>
+                    <input type="text" id="name"/>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone"> Phone Number </label>
+                    <input type="tel" id="phone"/>
+                </div>
+
+                <div class="input-group">
+                    <label for="role"> Your Role </label>
+                    <select type="role" id="role">
+                        <option value=""> Select Role </option>
+                        <option>Select Teacher </option>
+                        <option>Select Head Teacher </option>
+                        <option> Academic Master </option>
+                    </select>
+                </div>
+
+                <div class="input-group">
                     <label for="Password"> password </label>
                     <input type="password" id="password"/>
                 </div>
@@ -89,7 +109,10 @@
 
             const data = {
                 email: document.getElementById('email').value,
-                password: document.getElementById('password').value
+                password: document.getElementById('password').value,
+                full_name: document.getElementById('name').value,
+                phone_number: document.getElementById('phone').value,
+                user_type: document.getElementById('role').value
             };
 
 
