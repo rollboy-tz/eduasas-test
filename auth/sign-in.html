@@ -103,12 +103,10 @@
                 })
             .then(response => response.json())
             .then(result => {
-                console.log('Success:', result);
-                alert('Data imetumwa kikamilifu!');
+                location('../Dashboard/');
             })
             .catch(error => {
-                console.error('Hitilafu:', error);
-                alert('Imeshindikana kutuma data.');
+                console.error('Error:', error);
             });
         });
     </script>
