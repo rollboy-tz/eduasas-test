@@ -3,64 +3,1048 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./assets//index.css" rel="stylesheet" />
-    <title>Eduasas</title>
+    <title>Welcome - School Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        main {
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-            display: grid;
-            place-items: center;
-            place-content: center;
-    
+        /* ===== BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        .hero {
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            min-width: 90%;
-            padding: 50px;
-            background-color: rgb(174, 255, 201);
-            border-radius: 20px;
+            color: white;
         }
-        .btn-wrapper {
+        
+        /* ===== HEADER ===== */
+        .header {
+            padding: 20px 40px;
             display: flex;
-            flex-direction: row;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
-
-        .btn-wrapper .sign-up {
-            background: black;
-            color: aliceblue;
-            font-weight: bold;
-            border-radius: 20px;
-            padding: 10px 15px;
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo i {
+            font-size: 32px;
+            color: #a78bfa;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: white;
             text-decoration: none;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-
-        .btn-wrapper .sign-in {
-            background: blueviolet;
-            color: aliceblue;
-            font-weight: bold;
+        
+        .nav-link:hover {
+            opacity: 1;
+            color: #a78bfa;
+        }
+        
+        .language-selector {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 15px;
             border-radius: 20px;
-            padding: 10px 15px;
-            text-decoration: none;
+            cursor: pointer;
         }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #a78bfa;
+            font-weight: 600;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 80px 40px;
+            background: white;
+            color: #333;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #4f46e5;
+        }
+        
+        /* ===== FEATURES ===== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .feature-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            color: #4f46e5;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 20px;
+            background: #eef2ff;
+            border-radius: 50%;
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            margin-bottom: 80px;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7e22ce 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .step-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* ===== ACTION CARDS ===== */
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+        
+        .action-card {
+            background: linear-gradient(135deg, #4f46e5 0%, #7e22ce 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .action-card.secondary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+        }
+        
+        .action-card.tertiary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .action-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .action-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .action-description {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .action-btn {
+            background: white;
+            color: #4f46e5;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .action-btn.secondary {
+            color: #0ea5e9;
+        }
+        
+        .action-btn.tertiary {
+            color: #10b981;
+        }
+        
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: #f8fafc;
+            padding: 80px 40px;
+            margin-bottom: 80px;
+            border-radius: 20px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #eef2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #4f46e5;
+        }
+        
+        .author-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* ===== FAQ ===== */
+        .faq {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+        
+        .faq-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .faq-question:hover {
+            background: #f1f5f9;
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            padding: 0 30px 20px 30px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            color: #4f46e5;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 40px 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #a78bfa;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+        
+        .contact-info {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #4f46e5;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .main-content {
+                padding: 60px 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .action-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .testimonials {
+                padding: 60px 20px;
+            }
+            
+            .footer {
+                padding: 40px 20px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .action-card {
+                padding: 40px 20px;
+            }
+            
+            .action-title {
+                font-size: 24px;
+            }
+            
+            .action-btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
-    
-    <main>
-        <div class="hero">
-            <h2>Eduasas HOME</h2>
-            <div class="btn-wrapper">
-                <a class="sign-up" href="./auth/sign-up.html"> Sign Up </a>
-                <a class="sign-in" href="./auth/sign-in.html"> Sign In </a>
-            </div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            EduSystem
         </div>
+        
+        <nav class="nav-links">
+            <a href="#features" class="nav-link">
+                <i class="fas fa-star"></i> Features
+            </a>
+            <a href="#how-it-works" class="nav-link">
+                <i class="fas fa-play-circle"></i> How it Works
+            </a>
+            <a href="#testimonials" class="nav-link">
+                <i class="fas fa-comments"></i> Testimonials
+            </a>
+            <a href="#faq" class="nav-link">
+                <i class="fas fa-question-circle"></i> FAQ
+            </a>
+        </nav>
+        
+        <select class="language-selector">
+            <option value="en">🇺🇸 English</option>
+            <option value="sw">🇹🇿 Swahili</option>
+        </select>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content fade-in-up">
+            <h1 class="hero-title">
+                Transform Your School Management
+            </h1>
+            <p class="hero-subtitle">
+                The complete platform for schools to manage students, teachers, parents, 
+                academics, and finances. <span class="highlight">No user accounts without a school</span> - 
+                schools own and control all user accounts.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- FEATURES -->
+        <section id="features">
+            <h2 class="section-title fade-in-up">Why Choose EduSystem?</h2>
+            <div class="features">
+                <div class="feature-card fade-in-up delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 class="feature-title">School-Centered Design</h3>
+                    <p class="feature-description">
+                        Schools register first, then create user accounts. No orphan accounts. 
+                        Every user is owned and managed by their school.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in-up delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="feature-title">Secure & Controlled</h3>
+                    <p class="feature-description">
+                        School administrators have full control over all accounts. 
+                        Teachers and parents access only what they need.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in-up delay-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Comprehensive Analytics</h3>
+                    <p class="feature-description">
+                        Real-time insights on attendance, academic performance, 
+                        financial status, and school operations.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works">
+            <h2 class="section-title fade-in-up">How It Works</h2>
+            <div class="steps">
+                <div class="step fade-in-up delay-1">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">School Registration</h3>
+                    <p class="step-description">
+                        School administrator registers the school with basic information 
+                        and becomes the Super Admin.
+                    </p>
+                </div>
+                
+                <div class="step fade-in-up delay-2">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Setup & Configuration</h3>
+                    <p class="step-description">
+                        Setup classes, subjects, fee structure, and school calendar 
+                        through our intuitive setup wizard.
+                    </p>
+                </div>
+                
+                <div class="step fade-in-up delay-3">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Add Users</h3>
+                    <p class="step-description">
+                        School creates accounts for teachers, parents, and students. 
+                        All accounts are owned by the school.
+                    </p>
+                </div>
+                
+                <div class="step fade-in-up delay-4">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Start Managing</h3>
+                    <p class="step-description">
+                        Begin managing attendance, academics, fees, communications, 
+                        and generate reports in real-time.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTION CARDS -->
+        <section id="get-started">
+            <h2 class="section-title fade-in-up">Get Started Today</h2>
+            <div class="action-cards">
+                <div class="action-card fade-in-up delay-1">
+                    <div class="action-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 class="action-title">Register Your School</h3>
+                    <p class="action-description">
+                        Are you a school administrator, director, or owner? 
+                        Register your school and become the Super Admin.
+                    </p>
+                    <a href="register.html" class="action-btn">
+                        Register School <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="action-card secondary fade-in-up delay-2">
+                    <div class="action-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="action-title">Join Existing School</h3>
+                    <p class="action-description">
+                        Are you a teacher or parent? Request to join an existing school 
+                        or wait for an invitation from your school.
+                    </p>
+                    <a href="login.html" class="action-btn secondary">
+                        Request Access <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="action-card tertiary fade-in-up delay-3">
+                    <div class="action-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3 class="action-title">Watch Demo</h3>
+                    <p class="action-description">
+                        Not sure yet? Watch our 5-minute demo to see how EduSystem 
+                        can transform your school management.
+                    </p>
+                    <button class="action-btn tertiary" onclick="playDemo()">
+                        <i class="fas fa-play"></i> Watch Demo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" class="testimonials">
+            <h2 class="section-title fade-in-up">What Schools Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in-up delay-1">
+                    <p class="testimonial-text">
+                        "EduSystem transformed how we manage our school. The 'school-owned accounts' 
+                        philosophy gives us complete control and security."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>John Mwamba</h4>
+                            <p>Director, Shule ya Msingi ABC</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up delay-2">
+                    <p class="testimonial-text">
+                        "As a teacher, I love how easy it is to track student progress. 
+                        The parent communication features are excellent."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Head Teacher, Bright Future Academy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up delay-3">
+                    <p class="testimonial-text">
+                        "Finally a system that understands African schools! The fee management 
+                        and SMS notifications work perfectly for our parents."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>David Omondi</h4>
+                            <p>Administrator, Excel High School</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq">
+            <h2 class="section-title fade-in-up">Frequently Asked Questions</h2>
+            
+            <div class="faq-item fade-in-up delay-1">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I create a personal account without a school?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. EduSystem follows a "school-centered" approach. Only schools can register first, 
+                    then create accounts for their users (teachers, parents, students). This ensures 
+                    data security and proper accountability.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in-up delay-2">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What if I'm a teacher at multiple schools?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You will have separate accounts for each school. Each school owns your account 
+                    for their institution. You can use the same email/phone, but they will be 
+                    distinct accounts managed by each school.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in-up delay-3">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do parents get access to the system?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Schools create parent accounts when they register students. Parents receive 
+                    their login credentials via SMS or email from the school. Parents cannot 
+                    self-register - they must be added by their child's school.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in-up delay-4">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What information do I need to register my school?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You need: School name, address, contact information, TIN number, and details 
+                    of the school administrator who will become the Super Admin. The registration 
+                    process takes about 10 minutes.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in-up delay-1">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is there a free trial?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Schools get a 30-day free trial with full access to all features. 
+                    No credit card required for the trial period.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EduSystem</h3>
+                <p class="contact-info">
+                    Complete school management platform designed for African schools.
+                    School-centered, secure, and efficient.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="register.html">Register School</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p class="contact-info">
+                    <i class="fas fa-envelope"></i> support@edusystem.com<br>
+                    <i class="fas fa-phone"></i> +255 712 345 678<br>
+                    <i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania
+                </p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 EduSystem. All rights reserved. | Designed for African Schools</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== FAQ TOGGLE =====
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const toggle = faqItem.querySelector('.faq-toggle');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('active');
+            toggle.textContent = faqItem.classList.contains('active') ? '−' : '+';
+        }
+        
+        // ===== DEMO VIDEO =====
+        function playDemo() {
+            alert('🎬 Demo video would play here.\n\nIn production, this would open a modal with an embedded video.');
+            // In production:
+            // const modal = createVideoModal();
+            // modal.show();
+        }
+        
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ===== LANGUAGE SELECTOR =====
+        const languageSelector = document.querySelector('.language-selector');
+        languageSelector.addEventListener('change', function() {
+            const selectedLang = this.value;
+            alert(`Language changed to: ${selectedLang === 'en' ? 'English' : 'Swahili'}\n\nIn production, this would change all text on the page.`);
+            // In production:
+            // changeLanguage(selectedLang);
+        });
+        
+        // ===== ANIMATION ON SCROLL =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // ===== VISITOR COUNTER (Demo) =====
+        window.addEventListener('load', function() {
+            // Simulate visitor count
+            const visitorCount = Math.floor(Math.random() * 1000) + 5000;
+            console.log(`🎓 ${visitorCount} schools trust EduSystem`);
+            
+            // Show welcome message
+            setTimeout(() => {
+                console.log('Welcome to EduSystem - School Management Platform');
+                console.log('Key Philosophy: "No user without a school"');
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
