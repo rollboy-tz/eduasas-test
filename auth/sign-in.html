@@ -15,21 +15,33 @@
             place-items: center;
             place-content: center;
         }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        input {
+            padding: 8px 10px;
+            border-radius: 2px;
+            background: #f2fbfb;
+        }
     </style>
 </head>
 <body>
     
     <main>
-        <div>
+        <div form-wrapper>
             <form id="form">
-                <div>
-                    <label></label>
-                    <input />
+                <div class="input-group">
+                    <label for="email"> Email </label>
+                    <input type="email" id="email"/>
                 </div>
 
                 <div>
-                    <label></label>
-                    <input />
+                    <label for="password"> password </label>
+                    <input type="password" id="password"/>
                 </div>
             </form>
         </div>
