@@ -1029,11 +1029,12 @@
             // Simulate API call
             setTimeout(() => {
                 // In real app, you would send to backend:
-                // fetch('https://edusaas-api.onrender.com//api/schools/register', {
-                //     method: 'POST',
-                //     headers: {'Content-Type': 'application/json'},
-                //     body: JSON.stringify(formData)
-                // })
+                fetch('https://edusaas-api.onrender.com/api/schools/register', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(formData)
+                })
+                console.log('Form data',formData)
                 
                 // For demo, show success message
                 alert('✅ School registered successfully!\n\nYou will be redirected to login.');
