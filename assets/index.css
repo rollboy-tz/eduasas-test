@@ -19,10 +19,3 @@ main {
     place-content: center;
     height: 100%;
 }
-
-.hero {
-    width: 90;
-    border-radius: 20px;
-    background-color: #f49ef7;
-    text-align: center;
-}
